@@ -1,23 +1,30 @@
 var webpack = require('webpack');
+var WebpackDevServer = require('webpack-dev-server');
+var path = require("path");
 
 module.exports = {
-    entry: './index.jsx',
+    entry: [
+      'webpack-dev-server/client?http://127.0.0.1:8080',
+      'webpack/hot/only-dev-server',
+      './index.jsx'
+    ],
     output: {
-        filename: 'public/bundle.js',
-        //at this directory our bundle file will be available
-        //make sure port 8090 is used when launching webpack-dev-server
-        publicPath: 'http://localhost:8090/assets'
+      path: path.resolve(__dirname, "public"),
+      publicPath: '/public/',
+      filename: 'bundle.js',
     },
     module: {
         loaders: [
             {
-                //tell webpack to use jsx-loader for all *.jsx files
                 test: /\.jsx$/,
-                loader: 'jsx-loader?insertPragma=React.DOM&harmony'
+                loaders: ['react-hot', 'jsx-loader?insertPragma=React.DOM&harmony']
             }
         ]
     },
     resolve: {
         extensions: ['', '.js', '.jsx']
-    }
+    },
+    plugins: [
+      new webpack.HotModuleReplacementPlugin()
+    ]
 }

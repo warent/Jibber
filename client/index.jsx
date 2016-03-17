@@ -28,6 +28,10 @@ let ref = new Firebase("https://" + FIREBASE_APP + ".firebaseio.com");
 
 let ReactWrapper = React.createClass({
 
+  componentDidMount() {
+    ref.onAuth(this.setGoogleCredentials);
+  },
+
   childContextTypes : {
     muiTheme: React.PropTypes.object,
   },

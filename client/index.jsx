@@ -2,17 +2,13 @@
 
 let React = require('react');
 let ReactDOM = require('react-dom');
-let styles = require('./styles/main.scss')
-let injectTapEventPlugin = require("react-tap-event-plugin");
-injectTapEventPlugin();
+let styles = require('./styles/main.scss');
+let getMuiTheme = require('material-ui/lib/styles/getMuiTheme');
+let lightTheme = require('material-ui/lib/styles/baseThemes/lightBaseTheme');
 
 let {
   AppBar,
   TextField,
-  Card,
-  CardHeader,
-  CardText,
-  CardActions,
   FlatButton,
   IconButton,
   LeftNav
@@ -20,15 +16,26 @@ let {
 
 let NavigationMenu = require('material-ui/lib/svg-icons/navigation/menu');
 
-let TemplateHome = require('./components/Home');
+let Jibber = require('./components/Jibber');
 let TemplateLeftNav = require('./components/LeftNav');
 
 let ReactWrapper = React.createClass({
+
+  childContextTypes : {
+    muiTheme: React.PropTypes.object,
+  },
+
+  getChildContext() {
+    return {
+      muiTheme: getMuiTheme(lightTheme),
+    };
+  },
+
   getInitialState() {
-  return {
+    return {
       youAreUsingJade: true,
       navOpen: false
-    }
+    };
   },
   toggleUsingJade() {
     this.setState({
@@ -53,16 +60,9 @@ let ReactWrapper = React.createClass({
           title="Jibber"
           iconElementLeft={<IconButton onClick={this.clickNavMenu}><NavigationMenu /></IconButton>}
           />
-        <Card>
-          <CardHeader
-            title="Hello World" />
-          <CardText>
-            <TemplateHome youAreUsingJade={this.state.youAreUsingJade} />
-          </CardText>
-          <CardActions>
-            <FlatButton onClick={this.toggleUsingJade} label="Are you using Jade?" />
-          </CardActions>
-        </Card>
+        <Jibber title="Yolo">
+          Hello World!
+        </Jibber>
       </span>
     );
   }
@@ -72,3 +72,6 @@ ReactDOM.render(
   <ReactWrapper />,
   document.getElementById('jibber-render')
 );
+
+let injectTapEventPlugin = require("react-tap-event-plugin");
+injectTapEventPlugin();

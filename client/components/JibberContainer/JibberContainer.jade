@@ -1,10 +1,2 @@
-#container.col
-  if props.youAreUsingJade
-    p You are amazing
-  else
-    p Get on it!
-  p.
-    Jade is a terse and simple 
-    templating language with a 
-    strong focus on performance 
-    and powerful features.
+div(class=props.className)
+  =props.children

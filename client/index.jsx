@@ -17,6 +17,7 @@ let {
 let NavigationMenu = require('material-ui/lib/svg-icons/navigation/menu');
 
 let Jibber = require('./components/Jibber');
+let JibberContainer = require('./components/JibberContainer');
 let TemplateLeftNav = require('./components/LeftNav');
 
 let ReactWrapper = React.createClass({
@@ -60,9 +61,20 @@ let ReactWrapper = React.createClass({
           title="Jibber"
           iconElementLeft={<IconButton onClick={this.clickNavMenu}><NavigationMenu /></IconButton>}
           />
-        <Jibber title="Yolo">
-          Hello World!
-        </Jibber>
+        <JibberContainer className="jibber-container">
+          <Jibber title="Yolo">
+            Hello World!
+          </Jibber>
+          <Jibber title="Yolo">
+            Hello World!
+          </Jibber>
+          <Jibber title="Yolo">
+            Hello World!
+          </Jibber>
+          <Jibber title="Yolo">
+            Hello World!
+          </Jibber>
+        </JibberContainer>
       </span>
     );
   }

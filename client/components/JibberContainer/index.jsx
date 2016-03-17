@@ -14,11 +14,7 @@ let JibberContainer = React.createClass({
   render() {
     return require('./JibberContainer.jade')({
       props: this.props,
-      state: this.state,
-      Card: Card,
-      CardHeader: CardHeader,
-      CardHeader: CardText,
-      CardHeader: CardActions
+      state: this.state
     });
   }
 });

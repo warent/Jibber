@@ -6,6 +6,17 @@ html, body {
   font-family: 'Roboto', sans-serif;
 }
 
-.jibber-card-actions {
-  text-align: right;
+.jibber {
+  display: inline-block;
+  min-width: 300px;
+  margin: 20px 0;
+  text-align: left;
+  .action-buttons {
+    text-align: right;
+  }
+}
+
+.jibber-container {
+  margin: 40px;
+  text-align: center;
 }

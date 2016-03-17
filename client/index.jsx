@@ -1,12 +1,12 @@
 'use strict'
 
-// main.js
 let React = require('react');
 let ReactDOM = require('react-dom');
 let styles = require('./styles/main.scss')
-
 let injectTapEventPlugin = require("react-tap-event-plugin");
 injectTapEventPlugin();
+
+let {AppBar, TextField} = require('material-ui/lib');
 
 let TemplateHome = require('./templates/Home');
 
@@ -24,6 +24,7 @@ let ReactWrapper = React.createClass({
   render() {
     return (
       <span>
+        <AppBar />
         <TemplateHome youAreUsingJade={this.state.youAreUsingJade} />
         <br />
         <button onClick={this.toggleUsingJade}>Yolo</button>

@@ -33,6 +33,7 @@ module.exports = {
         extensions: ['', '.js', '.jsx']
     },
     plugins: [
+      //new webpack.optimize.UglifyJsPlugin(),
       new webpack.HotModuleReplacementPlugin()
     ]
 }

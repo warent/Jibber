@@ -2,7 +2,6 @@
 
 let React = require('react');
 let ReactDOM = require('react-dom');
-require('material-ui');
 
 let TemplateHome = React.createClass({
   render() {

@@ -35,5 +35,5 @@ let ReactWrapper = React.createClass({
 
 ReactDOM.render(
   <ReactWrapper />,
-  document.getElementById('example')
+  document.getElementById('jibber-render')
 );

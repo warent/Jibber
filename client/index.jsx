@@ -3,6 +3,11 @@
 // main.js
 let React = require('react');
 let ReactDOM = require('react-dom');
+let styles = require('./styles/main.scss')
+
+let injectTapEventPlugin = require("react-tap-event-plugin");
+injectTapEventPlugin();
+
 let TemplateHome = require('./templates/Home');
 
 let ReactWrapper = React.createClass({

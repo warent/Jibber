@@ -18,6 +18,14 @@ module.exports = {
             {
                 test: /\.jsx$/,
                 loaders: ['react-hot', 'jsx-loader?insertPragma=React.DOM&harmony']
+            },
+            {
+              test: /\.scss$/,
+              loaders: ["style", "css", "sass"]
+            },
+            {
+              test: /\.jade$/,
+              loaders: ["jade-react"]
             }
         ]
     },

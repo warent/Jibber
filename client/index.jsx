@@ -20,8 +20,8 @@ let {
 
 let NavigationMenu = require('material-ui/lib/svg-icons/navigation/menu');
 
-let TemplateHome = require('./templates/Home');
-let TemplateLeftNav = require('./templates/LeftNav');
+let TemplateHome = require('./components/Home');
+let TemplateLeftNav = require('./components/LeftNav');
 
 let ReactWrapper = React.createClass({
   getInitialState() {

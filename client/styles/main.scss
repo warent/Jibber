@@ -8,7 +8,7 @@ html, body {
 
 .jibber {
   display: inline-block;
-  min-width: 300px;
+  width: 300px;
   margin: 20px 0;
   text-align: left;
   .action-buttons {
@@ -19,4 +19,10 @@ html, body {
 .jibber-container {
   margin: 40px;
   text-align: center;
+}
+
+.appbar-avatar {
+  /* Avatars don't seem to align properly in IconButtons */
+  margin-left: -13px;
+  margin-top: -13px;
 }

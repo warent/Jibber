@@ -24,9 +24,15 @@ let JibberContainer = require('./components/JibberContainer');
 let UserPopover = require('./components/UserPopover');
 let TemplateLeftNav = require('./components/LeftNav');
 
-let ref = new Firebase("https://" + FIREBASE_APP + ".firebaseio.com");
+let ref = new Firebase("https://" + FIREBASE_APP + ".firebaseio.com/jibbers");
 
 let ReactWrapper = React.createClass({
+
+  mixins: [ReactFireMixin],
+
+  componentWillMount() {
+    this.bindAsArray(ref, "jibbers");
+  },
 
   componentDidMount() {
     ref.onAuth(this.setGoogleCredentials);
@@ -90,6 +96,12 @@ let ReactWrapper = React.createClass({
     });
   },
 
+  renderJibbers() {
+    return this.state.jibbers.map((jibber) => {
+      return <Jibber key={jibber[".key"]} title={jibber["title"]}>{jibber["body"]}</Jibber>;
+    });
+  },
+
   render() {
     return (
       <span>
@@ -112,18 +124,7 @@ let ReactWrapper = React.createClass({
           }
           />
         <JibberContainer className="jibber-container">
-          <Jibber title="Yolo">
-            Hello World!
-          </Jibber>
-          <Jibber title="Yolo">
-            Hello World!
-          </Jibber>
-          <Jibber title="Yolo">
-            Hello World!
-          </Jibber>
-          <Jibber title="Yolo">
-            Hello World!
-          </Jibber>
+          {this.renderJibbers()}
         </JibberContainer>
       </span>
     );

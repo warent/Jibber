@@ -21,6 +21,17 @@ html, body {
   text-align: center;
 }
 
+.jibber-form {
+  text-align: center;
+  margin: 28pt;
+}
+
+.jibber-form-inner {
+  text-align: left;
+  width: 300px;
+  display: inline-block;
+}
+
 .appbar-avatar {
   /* Avatars don't seem to align properly in IconButtons */
   margin-left: -13px;

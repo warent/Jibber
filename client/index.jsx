@@ -21,6 +21,7 @@ let NavigationMenu = require('material-ui/lib/svg-icons/navigation/menu');
 
 let Jibber = require('./components/Jibber');
 let JibberContainer = require('./components/JibberContainer');
+let JibberForm = require('./components/JibberForm');
 let UserPopover = require('./components/UserPopover');
 let TemplateLeftNav = require('./components/LeftNav');
 
@@ -53,7 +54,8 @@ let ReactWrapper = React.createClass({
       youAreUsingJade: true,
       navOpen: false,
       googleCredentials: null,
-      showUserPopover: false
+      showUserPopover: false,
+      jibberText: ""
     };
   },
   toggleUsingJade() {
@@ -96,6 +98,12 @@ let ReactWrapper = React.createClass({
     });
   },
 
+  submitJibberForm() {
+    this.setState({
+      jibberText: ""
+    });
+  },
+
   renderJibbers() {
     return this.state.jibbers.map((jibber) => {
       return <Jibber key={jibber[".key"]} title={jibber["title"]}>{jibber["body"]}</Jibber>;
@@ -123,6 +131,7 @@ let ReactWrapper = React.createClass({
             </span>
           }
           />
+        <JibberForm submit={this.submitJibberForm} bindText={this.state.jibberText} />
         <JibberContainer className="jibber-container">
           {this.renderJibbers()}
         </JibberContainer>

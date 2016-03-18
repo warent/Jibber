@@ -1,0 +1,10 @@
+div(className="jibber-form")
+  Card(className="jibber-form-inner")
+    CardText
+      TextField(
+        hintText="Be sure to include a hashtag"
+        floatingLabelText="Share your voice!"
+        multiLine=true
+        valueLink=state.textFieldBinder
+        )
+      FlatButton(label="Submit" onClick=submit)

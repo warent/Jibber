@@ -33,7 +33,7 @@ let JibberForm = React.createClass({
   },
 
   submit() {
-    console.log(this.state.textFieldBinder.value);
+    this.props.submit(this.state.textFieldBinder.value);
     let newValue = update(this.state, {
       textFieldBinder: {
         value: {$set:""}
